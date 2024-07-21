@@ -15,7 +15,7 @@ app.post('/api/llm', async (req, res) => {
     const { prompt } = req.body;
 
     try {
-                // Initialize the model with configuration
+              
         const model = genAI.getGenerativeModel({
             model: 'gemini-1.5-flash',
             generationConfig: {
@@ -24,7 +24,7 @@ app.post('/api/llm', async (req, res) => {
             }
         });
 
-        // Generate content with the provided prompt
+        
         const result = await model.generateContent({
             contents: [
                 {
@@ -42,7 +42,7 @@ app.post('/api/llm', async (req, res) => {
             }
         });
 
-        // Respond with the generated text
+        
         res.json({ text: result.response.text() });
     } catch (error) {
         console.error('Error in API request:', error);
